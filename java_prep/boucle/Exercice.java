@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Exercice 
 {
     public static void main(String []args) {
@@ -11,6 +13,9 @@ public class Exercice
             System.out.println(tab[i]);
             i++;
         }
+
+        //recherche d'un élément dans un tableau.
+        System.out.println("l'indice du nombre 2 est : " + Arrays.binarySearch(tab,2));
 
 
     }
