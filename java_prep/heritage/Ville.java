@@ -1,5 +1,3 @@
-package heritage;
-
 public class Ville {
     private static int nbVille = 0;
     private String nomVille;
@@ -54,13 +52,18 @@ public class Ville {
         nbHabitant = nHabitant;
     }
 
+    public String toString() {
+        return " la ville de " + this.nomVille + " est en " + this.nomPays + ". \n Elle est constitué de " +
+        this.nbHabitant + " habitants.";
+    }
+
     //Methode de classe
     public void comparer(Ville v1) {
         if(this.nbHabitant>v1.nbHabitant) {
-            System.out.print("La ville " + this.getNomVille() + " est plus peuplé que la ville de ");
+            System.out.print(" La ville " + this.getNomVille() + " est plus peuplé que la ville de ");
             System.out.println(v1.getNomVille());
         } else {
-            System.out.print("La ville " + this.getNomVille() + " est moins peuplé que la ville de ");
+            System.out.print(" La ville " + this.getNomVille() + " est moins peuplé que la ville de ");
             System.out.println(v1.getNomVille());
         }
     }
