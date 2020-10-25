@@ -1,3 +1,4 @@
+
 class Capitale extends Ville {
     private String president;
 
