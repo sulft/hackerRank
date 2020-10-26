@@ -32,5 +32,9 @@ public class Heritage {
                 tab[i] = c;
             }
         }
+
+        for(Object s: tab) {
+            System.out.println(s.toString() + "\n");
+        }
     }
 }
