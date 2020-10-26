@@ -1,4 +1,4 @@
-package heritage;
+
 
 public class Ville {
     private static int nbVille = 0;
