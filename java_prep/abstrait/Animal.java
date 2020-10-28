@@ -3,7 +3,7 @@ public abstract class Animal {
     protected String couleur;
     protected int poids;
 
-    //ATTENTION LES CLASSES ABTRAITES N'ONT PAS DE CONSTRUCTEUR
+    //ATTENTION LES CLASSES ABSTRAITES N'ONT PAS DE CONSTRUCTEUR
 
     //methode 
     public void manger() {
