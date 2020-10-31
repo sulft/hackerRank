@@ -1,3 +1,5 @@
+
+
 public abstract class Animal {
     //attribut
     protected String couleur;
@@ -137,3 +139,4 @@ class Chat extends Felin {
 interface Rintintin {
     public void faireLeBeau();
 }
+
