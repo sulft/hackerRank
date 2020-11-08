@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 import java.awt.*;
 
 
@@ -11,13 +13,20 @@ public class Gui extends JFrame {
         setVisible(true);
 
         JPanel element = (JPanel) this.getContentPane();
-        element.setLayout( new FlowLayout() ); //from java.awt, gère le layout de mes boutons
-        element.add( new JButton("Depot") );
-        element.add( new JButton("Retrait") );
+        element.setLayout( null ); //Permet de placer les éléments à la main
+        JButton btn_depot = new JButton("Depot");
+        btn_depot.setBounds(260,300,70,30);
+        element.add( btn_depot );
+
+        JButton btn_retrait = new JButton("Retrait");
+        btn_retrait.setBounds(260,250,70,30);
+        element.add( btn_retrait );
+
 
     }
 
-    public static void main(String []args) {
+    public static void main(String []args) throws Exception {
+        UIManager.setLookAndFeel( new NimbusLookAndFeel() );
         JFrame gui = new Gui();
     }
 }
