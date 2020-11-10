@@ -13,9 +13,18 @@ public class Gui extends JFrame {
         this.setSize(300,300);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(true);
+        this.setAlwaysOnTop(true);
+
+        JPanel jp = new JPanel();
+
+        jp.setBackground(Color.GREEN);
+        this.setContentPane(jp);
 
         this.setVisible(true); //rends la fenêtre visible
     }
+
+    
 
     public static void main(String []args) throws Exception {
         UIManager.setLookAndFeel( new NimbusLookAndFeel() );
