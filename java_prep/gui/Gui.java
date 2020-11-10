@@ -19,12 +19,13 @@ public class Gui extends JFrame {
         JPanel jp = new JPanel();
 
         jp.setBackground(Color.GREEN);
-        this.setContentPane(jp);
+        this.setContentPane(new Panneau());
 
         this.setVisible(true); //rends la fenêtre visible
-    }
 
-    
+        
+
+    }
 
     public static void main(String []args) throws Exception {
         UIManager.setLookAndFeel( new NimbusLookAndFeel() );
