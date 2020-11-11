@@ -10,14 +10,13 @@ public class Gui extends JFrame {
         super("gui");
 
         this.setTitle("Ma fenetre Java");
-        this.setSize(300,300);
+        this.setSize(100,150);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
         this.setAlwaysOnTop(true);
 
         JPanel jp = new JPanel();
-
         jp.setBackground(Color.GREEN);
         this.setContentPane(new Panneau());
 
