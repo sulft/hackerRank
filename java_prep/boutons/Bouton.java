@@ -25,7 +25,13 @@ public class Bouton extends JFrame {
         //this.setVisible(true);
 
         //GridLayout
-        this.setLayout(new GridLayout(3,4));
+        GridLayout g = new GridLayout();
+        g.setRows(4);
+        g.setColumns(3);
+        this.setLayout(g);
+
+        g.setHgap(10);
+        g.setVgap(20);
 
         this.getContentPane().add(new JButton("1"));
         this.getContentPane().add(new JButton("2"));
@@ -38,6 +44,8 @@ public class Bouton extends JFrame {
         this.getContentPane().add(new JButton("9"));
         this.getContentPane().add(new JButton("10"));
         this.setVisible(true);
+
+        //FlowLayout
     }
     public static void main(String []args) {
         Bouton test = new Bouton();
