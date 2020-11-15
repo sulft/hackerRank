@@ -4,29 +4,32 @@ import java.awt.*;
 public class Bouton extends JFrame {
 
     private JPanel pan = new JPanel();
-    private JButton bouton = new JButton("Le BOUTON");
+    private JButton fenetre = new JButton("Le BOUTON");
+    private GridLayout g = new GridLayout();
+    private FlowLayout test = new FlowLayout(FlowLayout.CENTER,15,20);
+    private BorderLayout bLayout = new BorderLayout();
+    private JLabel label = new JLabel();
 
     Bouton() {
+        // Configuration de la fenetre
         this.setTitle("Les boutons");
         this.setSize(400,400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
-        pan.add(bouton);
 
         //BorderLayout
-        /*this.setLayout(new BorderLayout());//on définit le type de Layout à utiliser
+        pan.setLayout(bLayout);//on définit le type de Layout à utiliser
+        label.setText("Mon premier Label..");
 
-        this.getContentPane().add(new JButton("NORD"), BorderLayout.NORTH) ;
-        this.getContentPane().add(new JButton("SUD"), BorderLayout.SOUTH);
-        this.getContentPane().add(new JButton("MILLIEU"), BorderLayout.CENTER);
-        this.getContentPane().add(new JButton("EST"), BorderLayout.EAST);
-        this.getContentPane().add(new JButton("OUEST"), BorderLayout.WEST);*/
-        //this.setVisible(true);
+        pan.add(new JButton("NORD"), BorderLayout.NORTH) ;
+        pan.add(label, BorderLayout.EAST);
+        pan.add(new JButton("SUD"), BorderLayout.SOUTH);
+        this.setContentPane(pan);
+        this.setVisible(true);
 
         //GridLayout
-        GridLayout g = new GridLayout();
-        g.setRows(4);
+        /*g.setRows(4);
         g.setColumns(3);
         this.setLayout(g);
 
@@ -43,11 +46,21 @@ public class Bouton extends JFrame {
         this.getContentPane().add(new JButton("8"));
         this.getContentPane().add(new JButton("9"));
         this.getContentPane().add(new JButton("10"));
-        this.setVisible(true);
+        this.setVisible(true);*/
 
         //FlowLayout
+        /*this.setLayout(test);//on définit le type de Layout à utiliser
+        pan.add(new JButton("1"));
+        pan.add(new JButton("2"));
+        pan.add(new JButton("3"));
+        pan.add(new JButton("4"));
+        pan.add(new JButton("1"));
+        pan.add(new JButton("2"));
+        pan.add(new JButton("3"));
+        pan.add(new JButton("4"));
+        this.setVisible(true);*/
     }
     public static void main(String []args) {
-        Bouton test = new Bouton();
+        Bouton test1 = new Bouton();
     }
 }
