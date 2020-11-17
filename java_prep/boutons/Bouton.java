@@ -9,6 +9,7 @@ public class Bouton extends JFrame {
     private FlowLayout test = new FlowLayout(FlowLayout.CENTER,15,20);
     private BorderLayout bLayout = new BorderLayout();
     private JLabel label = new JLabel();
+    private JLabel label1 = new JLabel();
 
     Bouton() {
         // Configuration de la fenetre
@@ -21,9 +22,11 @@ public class Bouton extends JFrame {
         //BorderLayout
         pan.setLayout(bLayout);//on définit le type de Layout à utiliser
         label.setText("Mon premier Label..");
+        label1.setText("Mon premier Label1..");
 
         pan.add(new JButton("NORD"), BorderLayout.NORTH) ;
         pan.add(label, BorderLayout.EAST);
+        pan.add(label1, BorderLayout.WEST);
         pan.add(new JButton("SUD"), BorderLayout.SOUTH);
         this.setContentPane(pan);
         this.setVisible(true);
