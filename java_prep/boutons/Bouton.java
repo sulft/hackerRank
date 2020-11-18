@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Bouton extends JFrame {
+public class Bouton extends JFrame implements ActionListener{
 
     private JPanel pan = new JPanel();
     private JButton fenetre = new JButton("Le BOUTON");
@@ -10,8 +12,12 @@ public class Bouton extends JFrame {
     private BorderLayout bLayout = new BorderLayout();
     private JLabel label = new JLabel();
     private JLabel label1 = new JLabel();
+    private int compteur = 0;
 
     Bouton() {
+        //Création de bouton
+        JButton bouton = new JButton("compteur");
+
         // Configuration de la fenetre
         this.setTitle("Les boutons");
         this.setSize(400,400);
@@ -21,48 +27,25 @@ public class Bouton extends JFrame {
 
         //BorderLayout
         pan.setLayout(bLayout);//on définit le type de Layout à utiliser
-        label.setText("Mon premier Label..");
-        label1.setText("Mon premier Label1..");
+        label.setText("Vous avez clique " + this.compteur + " fois");
 
-        pan.add(new JButton("NORD"), BorderLayout.NORTH) ;
-        pan.add(label, BorderLayout.EAST);
-        pan.add(label1, BorderLayout.WEST);
-        pan.add(new JButton("SUD"), BorderLayout.SOUTH);
+        //ajout du bouton a notre fenetre en tant que event
+        bouton.addActionListener(this);
+        pan.add (bouton, BorderLayout.SOUTH);
+
+        label.setForeground (Color.red); //change la couleur d'écrit du texte
+        label.setHorizontalAlignment(JLabel.CENTER); //aligne le texte horizontalement
+        pan.add(label, BorderLayout.CENTER); //Place le texte au centre
+        pan.add(bouton, BorderLayout.SOUTH);
         this.setContentPane(pan);
         this.setVisible(true);
-
-        //GridLayout
-        /*g.setRows(4);
-        g.setColumns(3);
-        this.setLayout(g);
-
-        g.setHgap(10);
-        g.setVgap(20);
-
-        this.getContentPane().add(new JButton("1"));
-        this.getContentPane().add(new JButton("2"));
-        this.getContentPane().add(new JButton("3"));
-        this.getContentPane().add(new JButton("4"));
-        this.getContentPane().add(new JButton("5"));
-        this.getContentPane().add(new JButton("6"));
-        this.getContentPane().add(new JButton("7"));
-        this.getContentPane().add(new JButton("8"));
-        this.getContentPane().add(new JButton("9"));
-        this.getContentPane().add(new JButton("10"));
-        this.setVisible(true);*/
-
-        //FlowLayout
-        /*this.setLayout(test);//on définit le type de Layout à utiliser
-        pan.add(new JButton("1"));
-        pan.add(new JButton("2"));
-        pan.add(new JButton("3"));
-        pan.add(new JButton("4"));
-        pan.add(new JButton("1"));
-        pan.add(new JButton("2"));
-        pan.add(new JButton("3"));
-        pan.add(new JButton("4"));
-        this.setVisible(true);*/
     }
+
+    public void actionPerformed(ActionEvent arg0){
+        this.compteur++;
+        label.setText("Vous avez clique " + this.compteur + " fois");
+    }
+
     public static void main(String []args) {
         Bouton test1 = new Bouton();
     }
