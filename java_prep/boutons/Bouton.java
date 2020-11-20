@@ -14,6 +14,7 @@ public class Bouton extends JFrame implements ActionListener{
     private int compteur = 0;
     private JButton bouton = new JButton("incrementation");
     private JButton bouton2 = new JButton("decrementation");
+    private JButton bouton3 = new JButton("remise a 0");
 
     Bouton() {
         //Création de bouton
@@ -33,6 +34,7 @@ public class Bouton extends JFrame implements ActionListener{
         JPanel bottom = new JPanel();
         bottom.add(bouton);
         bottom.add(bouton2);
+        bottom.add(bouton3);
         //ajout d'un JPanel dans un autre JPanel
         pan.add(bottom, BorderLayout.SOUTH);
 
@@ -40,6 +42,7 @@ public class Bouton extends JFrame implements ActionListener{
         //ajout du bouton a notre fenetre en tant que event
         bouton.addActionListener(this);
         bouton2.addActionListener(this);
+        bouton3.addActionListener(this);
 
         //placement des éléments dans ça fenetre
         label.setText("Vous avez clique " + this.compteur + " fois");
@@ -59,7 +62,11 @@ public class Bouton extends JFrame implements ActionListener{
             this.compteur--;
             label.setText("Vous avez clique " + this.compteur + " fois");
         }
+        if(x.getSource() == bouton3) {
+            this.compteur = 0;
+            label.setText("Vous avez clique " + this.compteur + " fois");
 
+        }
         //getSource permet de déterminer le nom de l'instance qui a généré un évènement
         //l'argument "x" est un évènement
     }
