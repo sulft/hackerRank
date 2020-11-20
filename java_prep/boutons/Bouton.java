@@ -3,15 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Bouton extends JFrame implements ActionListener{
+public class Bouton extends JFrame{
 
     private JPanel pan = new JPanel();
     private JButton fenetre = new JButton("Le BOUTON");
-    private GridLayout g = new GridLayout();
-    private FlowLayout test = new FlowLayout(FlowLayout.CENTER,15,20);
+    
     private JLabel label = new JLabel();
-    private JLabel label1 = new JLabel();
-    private int compteur = 0;
+    protected int compteur = 0;
     private JButton bouton = new JButton("incrementation");
     private JButton bouton2 = new JButton("decrementation");
     private JButton bouton3 = new JButton("remise a 0");
@@ -40,9 +38,9 @@ public class Bouton extends JFrame implements ActionListener{
 
 
         //ajout du bouton a notre fenetre en tant que event
-        bouton.addActionListener(this);
-        bouton2.addActionListener(this);
-        bouton3.addActionListener(this);
+        bouton.addActionListener(new ListenBouton1());
+        bouton2.addActionListener(new ListenBouton2());
+        bouton3.addActionListener(new ListenBouton3());
 
         //placement des éléments dans ça fenetre
         label.setText("Vous avez clique " + this.compteur + " fois");
@@ -53,7 +51,15 @@ public class Bouton extends JFrame implements ActionListener{
         this.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent x){
+    public int getCompteur() {
+        return this.compteur;
+    }
+
+    public void setCompteur(int compteur) {
+        this.compteur = compteur;
+    }
+
+    /*public void actionPerformed(ActionEvent x){
         if(x.getSource() == bouton) {
             this.compteur++;
             label.setText("Vous avez clique " + this.compteur + " fois");
@@ -67,11 +73,34 @@ public class Bouton extends JFrame implements ActionListener{
             label.setText("Vous avez clique " + this.compteur + " fois");
 
         }
+    
         //getSource permet de déterminer le nom de l'instance qui a généré un évènement
         //l'argument "x" est un évènement
+    }*/
+
+    class ListenBouton1 implements ActionListener {
+        public void actionPerformed(ActionEvent x) {
+            setCompteur(getCompteur()+1);
+            label.setText("Vous avez clique " + getCompteur() + " fois");
+        }
+    }
+
+    class ListenBouton2 implements ActionListener {
+        public void actionPerformed(ActionEvent y) {
+            setCompteur(getCompteur()-1);
+            label.setText("Vous avez clique " + getCompteur() + " fois");
+        }
+    }
+
+    class ListenBouton3 implements ActionListener {
+        public void actionPerformed(ActionEvent z) {
+            setCompteur(0);
+            label.setText("Vous avez clique " + getCompteur() + " fois");
+        }
     }
 
     public static void main(String []args) {
         Bouton test1 = new Bouton();
     }
+
 }
