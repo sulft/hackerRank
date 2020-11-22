@@ -19,7 +19,7 @@ public class Bouton extends JFrame{
 
         // Configuration de la fenetre
         this.setTitle("Les boutons");
-        this.setSize(400,400);
+        this.setSize(500,400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
@@ -41,6 +41,10 @@ public class Bouton extends JFrame{
         bouton.addActionListener(new ListenBouton1());
         bouton2.addActionListener(new ListenBouton2());
         bouton3.addActionListener(new ListenBouton3());
+
+        bouton.setPreferredSize(new Dimension(120,100));
+        bouton2.setPreferredSize(new Dimension(120,100));
+        bouton3.setPreferredSize(new Dimension(120,100));
 
         //placement des éléments dans ça fenetre
         label.setText("Vous avez clique " + this.compteur + " fois");
@@ -82,6 +86,9 @@ public class Bouton extends JFrame{
         public void actionPerformed(ActionEvent x) {
             setCompteur(getCompteur()+1);
             label.setText("Vous avez clique " + getCompteur() + " fois");
+            bouton.setEnabled(false);
+            bouton2.setEnabled(true);
+            bouton3.setEnabled(true);
         }
     }
 
@@ -89,6 +96,9 @@ public class Bouton extends JFrame{
         public void actionPerformed(ActionEvent y) {
             setCompteur(getCompteur()-1);
             label.setText("Vous avez clique " + getCompteur() + " fois");
+            bouton.setEnabled(true);
+            bouton2.setEnabled(false);
+            bouton3.setEnabled(true);
         }
     }
 
@@ -96,6 +106,9 @@ public class Bouton extends JFrame{
         public void actionPerformed(ActionEvent z) {
             setCompteur(0);
             label.setText("Vous avez clique " + getCompteur() + " fois");
+            bouton.setEnabled(true);
+            bouton2.setEnabled(true);
+            bouton3.setEnabled(false);
         }
     }
 
