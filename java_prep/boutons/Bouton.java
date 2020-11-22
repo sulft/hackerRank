@@ -15,8 +15,6 @@ public class Bouton extends JFrame{
     private JButton bouton3 = new JButton("remise a 0");
 
     Bouton() {
-        //Création de bouton
-
         // Configuration de la fenetre
         this.setTitle("Les boutons");
         this.setSize(500,400);
