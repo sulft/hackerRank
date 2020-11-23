@@ -1,4 +1,8 @@
 import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 
 public class Bank {
@@ -6,13 +10,8 @@ public class Bank {
     public static void main(String []args) {
         LaBanque test = new LaBanque(1000,"150","VILVER");
         LaBanque test1 = new LaBanque(2000,"151","LEVY");
-        test.afficheMontant();
-        test1.afficheMontant();
-
-        test.transfertArgent(test1);
-
+        Fenetre fen = new Fenetre();
         System.out.println(test1.toString());
-
     }
 }
 
@@ -125,3 +124,66 @@ class LaBanque {
         getSolde() + " euros.";
     }
 }
+
+class Fenetre extends JFrame {
+    //création de conteneur
+    JPanel pan = new JPanel();
+    JPanel screen = new JPanel(); 
+    JPanel bottom = new JPanel();
+
+    //création label
+    JLabel texte = new JLabel();
+
+    Fenetre() {
+        this.setTitle("Ma banque");
+        this.setSize(500,500);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        //type de layout
+        pan.setLayout(new BorderLayout());
+        screen.setLayout(new FlowLayout(FlowLayout.CENTER,0,200));
+
+        //ajout du conteneur "bottom" au conteneur "pan"
+        pan.add(bottom);
+        pan.add(bottom, BorderLayout.SOUTH);
+        
+        pan.add(screen);
+
+        //initialisation et création des boutons
+        JButton but20 = new JButton("20$");
+        JButton but50 = new JButton("50$");
+        JButton but100 = new JButton("100$");
+        JButton but200 = new JButton("200$");
+        JButton but500 = new JButton("500$");
+
+        bottom.add(but20);
+        bottom.add(but50);
+        bottom.add(but100);
+        bottom.add(but200);
+        bottom.add(but500);
+
+        //liaison au ActionListener
+        but20.addActionListener(new but20());
+
+
+        //initialisation texte
+        screen.add(texte);
+        texte.setText("Bienvenu dans ma banque !");
+
+        this.setContentPane(pan);
+
+
+        this.setVisible(true);
+
+    }
+
+    class but20 implements ActionListener {
+        public void ActionPerformed(ActionEvent arg0) {
+            texte.setText("Don de 20 euros");
+        }
+    }
+
+}
+
+
